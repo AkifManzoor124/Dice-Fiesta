@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
     margin: 5  
   },
   sideMenuButtonContainer: {
-    width: 100
+    marginTop: 20,
+    width: 100 
   }
 });
