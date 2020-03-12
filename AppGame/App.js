@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Button, StyleSheet, View, Image} from 'react-native';
+import { Button, StyleSheet, View, Image, Platform, StatusBar} from 'react-native';
 
-export default class ButtonBasics extends Component {
+export default class MainActivity extends Component {
   _onPressButton() {
     alert('You tapped the button!')
   }
@@ -26,7 +26,7 @@ export default class ButtonBasics extends Component {
 
         <View style={styles.buttonsContainer}>
           <View style={styles.buttonContainer}>
-            <Button
+          <Button 
               onPress={this._onPressButton}
               title="Start Game"
             />
@@ -46,7 +46,8 @@ export default class ButtonBasics extends Component {
 const styles = StyleSheet.create({
   container: {
    flex: 1,
-   flexDirection: "column"
+   flexDirection: "column",
+   paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0
   },
   logoContainer: {
     height: 400,
@@ -61,7 +62,6 @@ const styles = StyleSheet.create({
     margin: 5  
   },
   sideMenuButtonContainer: {
-    marginTop: 20,
     width: 100 
   }
 });
