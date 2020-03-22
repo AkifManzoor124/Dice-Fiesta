@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import MainActivity from '../screens/MainActivity'
 import CustomizeRules from '../screens/CustomizeRules'
+import StartGame from "../screens/StartGame"
 
 const Stack = createStackNavigator()
 
@@ -14,14 +15,20 @@ function MainStackNavigator() {
         <Stack.Screen
           name='MainActivity'
           component={MainActivity}
-          options={{ title: 'MainActivity' }}
+          options={{ title: 'MainActivity', headerShown: false }}
+        />
+        <Stack.Screen
+          name='StartGame'
+          component={StartGame}
+          options={{ title: 'Start Game', headerShown: false}}
         />
         <Stack.Screen
           name='CustomizeRules'
           component={CustomizeRules}
-          options={{ title: 'CustomizeRules' }}
-        />
+          options={{ title: 'Customize Rules', headerShown: false }}
+        />       
       </Stack.Navigator>
+      
     </NavigationContainer>
   )
 }

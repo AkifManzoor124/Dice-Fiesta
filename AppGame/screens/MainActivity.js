@@ -22,7 +22,7 @@ function MainActivity(props) {
       <View style={styles.buttonsContainer}>
         <View style={styles.buttonContainer}>
         <Button 
-            onPress={ () => navigation.navigate('CustomizeRules')}
+            onPress={ () => navigation.navigate('StartGame')}
             title="Start Game"
           />
         </View>
