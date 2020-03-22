@@ -18,7 +18,7 @@ export default class MainActivity extends Component {
         </View>
 
         <View style={styles.logoContainer}>
-          <Image source={require('./nothamsterporn.jpg')}
+          <Image source={require('./The_Child_aka_Baby_Yoda_(Star_Wars).jpg')}
           style={{height:250, width:300}}
           />
         </View>
@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
   container: {
    flex: 1,
    flexDirection: "column",
+   backgroundColor: "lightblue",
    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0
   },
   logoContainer: {
