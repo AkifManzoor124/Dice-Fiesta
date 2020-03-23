@@ -4,7 +4,7 @@ import { StyleSheet, View, Text } from 'react-native'
 function CustomizeRules() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>CustomizeRules</Text>
+      <Text style={styles.text}>Add Member</Text>
     </View>
   )
 }

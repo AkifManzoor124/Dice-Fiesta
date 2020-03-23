@@ -1,10 +1,10 @@
 import React from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 
-function CustomizeRules() {
+function Settings() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>CustomizeRules</Text>
+      <Text style={styles.text}>Settings</Text>
     </View>
   )
 }
@@ -23,6 +23,6 @@ const styles = StyleSheet.create({
   }
 })
 
-export default CustomizeRules
+export default Settings
 
 // /screens/CustomizeRules.js

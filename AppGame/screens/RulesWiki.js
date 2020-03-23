@@ -1,10 +1,10 @@
 import React from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 
-function CustomizeRules() {
+function RulesWiki() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>CustomizeRules</Text>
+      <Text style={styles.text}>Rules Wiki</Text>
     </View>
   )
 }
@@ -23,6 +23,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default CustomizeRules
-
-// /screens/CustomizeRules.js
+export default RulesWiki
