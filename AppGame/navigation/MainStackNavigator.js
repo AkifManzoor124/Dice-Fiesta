@@ -15,7 +15,8 @@ const Stack = createStackNavigator();
 function Root() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="MainActivity" component={MainActivity} />
+      <Stack.Screen name="MainActivity" component={MainActivity}
+      options={{headerShown: false}}/> 
       <Stack.Screen name="StartGame" component={StartGame} />
       <Stack.Screen name="CustomizeRules" component={CustomizeRules} />
       <Stack.Screen name="AddMember" component={AddMember} />

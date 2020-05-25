@@ -9,7 +9,7 @@ function MainActivity(props) {
       <View style={styles.sideMenuButtonContainer}>
         <Button
           onPress={ () => navigation.navigate('CustomizeRules')}
-          title="Side Menu Button"
+          title="Swipe right for side menu"
         />
       </View>
 
@@ -31,6 +31,12 @@ function MainActivity(props) {
           <Button
             onPress={ () => navigation.navigate('CustomizeRules')}
             title="Customize Rules"
+          />
+        </View>
+        <View style={styles.buttonContainer}>
+          <Button
+            onPress={ () => navigation.navigate('AddMember')}
+            title="Add Members"
           />
         </View>
       </View>
