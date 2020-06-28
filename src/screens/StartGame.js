@@ -2,12 +2,12 @@ import * as React from 'react';
 import { Button, View, Text, StyleSheet, TouchableHighlight } from 'react-native';
 import { Image } from 'react-native'
 
-var Dice1 = require("../screens/Dice1.png")
-var Dice2 = require("../screens/Dice2.png")
-var Dice3 = require("../screens/Dice3.png")
-var Dice4 = require("../screens/Dice4.png")
-var Dice5 = require("../screens/Dice5.png")
-var Dice6 = require("../screens/Dice6.png")
+var Dice1 = require("../assets/Dice1.png")
+var Dice2 = require("../assets/Dice2.png")
+var Dice3 = require("../assets/Dice3.png")
+var Dice4 = require("../assets/Dice4.png")
+var Dice5 = require("../assets/Dice5.png")
+var Dice6 = require("../assets/Dice6.png")
 
 
 class StartGame extends React.Component {

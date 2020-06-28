@@ -14,7 +14,7 @@ function MainActivity(props) {
       </View>
 
       <View style={styles.logoContainer}>
-        <Image source={require('../The_Child_aka_Baby_Yoda_(Star_Wars).jpg')}
+        <Image source={require('../assets/The_Child_aka_Baby_Yoda_(Star_Wars).jpg')}
         style={{height:250, width:300}}
         />
       </View>
