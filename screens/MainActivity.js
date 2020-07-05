@@ -33,12 +33,14 @@ function MainActivity(props) {
             title="Customize Rules"
           />
         </View>
+
         <View style={styles.buttonContainer}>
           <Button
             onPress={ () => navigation.navigate('AddMember')}
             title="Add Members"
           />
         </View>
+        
       </View>
     </View>
   );
