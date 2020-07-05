@@ -8,7 +8,7 @@ class StartGame extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      image : require('../assets/images/roll.jpg')
+      image : images.roll
     } 
   }
 
@@ -36,7 +36,7 @@ class StartGame extends React.Component {
         dice = images.dice6;
         break;          
     }
-     
+
     this.setState({
       image: dice
     });
