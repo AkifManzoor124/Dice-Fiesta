@@ -16,24 +16,27 @@ class StartGame extends React.Component {
     var randomNumber=Math.floor((Math.random()*6)+1);
     var dice;
 
-    if(randomNumber == 1){
-      dice = images.dice1;
+    switch(randomNumber){
+      case 1:
+        dice = images.dice1;
+        break;
+      case 2:
+        dice = images.dice2;
+        break;
+      case 3:
+        dice = images.dice3;
+        break;  
+      case 4:
+        dice = images.dice4;
+        break;    
+      case 5:
+        dice = images.dice5;
+        break;             
+      case 6:
+        dice = images.dice6;
+        break;          
     }
-    else if(randomNumber == 2){
-      dice = images.dice2;
-    }
-    else if(randomNumber == 3){
-      dice = images.dice3;
-    }
-    else if(randomNumber == 4){
-      dice = images.dice4;
-    }
-    else if(randomNumber == 5){
-      dice = images.dice5;
-    }        
-    else{
-      dice = images.dice6;
-    }   
+     
     this.setState({
       image: dice
     });
