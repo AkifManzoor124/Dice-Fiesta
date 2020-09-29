@@ -1,20 +1,22 @@
-import * as React from 'react';
-import { Button, View, Text, StyleSheet, TouchableHighlight } from 'react-native';
+import React, { useState } from 'react';
+import { Button, View, Text, StyleSheet } from 'react-native';
 import { Image } from 'react-native'
-
 import images from '../assets/images'
+import gameRules from '../assets/gameRules'
+import rulesReference from '../settings/rulesReference.json'
+import RuleModal from './RuleModal'
 
-class StartGame extends React.Component {
-  constructor(props){
-    super(props);
-    this.state={
-      image : images.roll
-    } 
-  }
+const StartGame = (props) => {
 
-  generateRandomDiceImage = () => {
+  const [image, setImage] = useState(images.roll);
+  const [modalVisible, setModalVisibility] = useState(false); //defaults the modalvisibility to false
+  const [rule, setRules]= useState("Truth or Drink");
+
+  const generateRandomDiceImage = () => {
     var randomNumber=Math.floor((Math.random()*6)+1);
     var dice;
+
+    console.log(randomNumber)
 
     switch(randomNumber){
       case 1:
@@ -36,26 +38,28 @@ class StartGame extends React.Component {
         dice = images.dice6;
         break;          
     }
+    console.log("Random number: "+randomNumber); 
+    console.log("Rule: "+ rulesReference[randomNumber]);
+    setImage(dice);
+    setRules(rulesReference[randomNumber]);
 
-    this.setState({
-      image: dice
-    });
+    console.log(rule)
   }
 
-  render() {
-    return(
-      <View style={styles.container}>
-          <Image 
-            source = {this.state.image}
-            style = {styles.imageStyle} 
-          />
-          <View style={styles.buttonContainer}>
-            <Button title="Roll" onPress={this.generateRandomDiceImage} />
-          </View>
-      </View>
-    );
-  }
+  return(
+    <View style={styles.container}>
+      <Image source={image} style={styles.imageStyle}/>
+        <View style={styles.buttonContainer}>
+          <Button title="Roll" onPress={() => {generateRandomDiceImage(); setModalVisibility(!modalVisible)}} /> 
+          {/* when roll is pressed, the modalvisibility becomes not false aka true*/}
+        </View>
+
+      <RuleModal modalVisible={modalVisible} setModalVisibility={setModalVisibility} styles={styles} rule={rule}></RuleModal>
+    </View>
+  ); 
+
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -76,7 +80,28 @@ const styles = StyleSheet.create({
   imageStyle:{
     width: 250, 
     height: 250,
-  }
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },  
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 5,
+      height: 5
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
+  },  
 })
 
 export default StartGame
