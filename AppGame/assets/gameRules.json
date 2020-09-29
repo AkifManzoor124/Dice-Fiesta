@@ -1,0 +1,48 @@
+{
+    "Truth or Drink": {
+        "description":"Choose someone to ask a question from the list below. If you dont answer, you must drink", 
+        "content":{
+            "Question 1" :"Question 1",
+            "Question 2" :"Question 2", 
+            "Question 3" :"Question 3"
+        }
+    },
+    "Dares": {
+        "description":"Pick a dare from this list of 3", 
+        "content":{
+            "Dare 1" :"Dare 1",
+            "Dare 2" :"Dare 2", 
+            "Dare 3" :"Dare 3"
+        
+        }
+    },
+    "Zip Zap Zop": {
+        "description":"Point to the right for zip, point to the left for zap, point across for zop", 
+        "content":{ 
+        
+        }
+    },
+    "Never have I ever": {
+        "description":"5 fingers up, first one to lose has to drink", 
+        "content":{
+        
+        }
+    },
+    "Medusa": {
+        "description":"Everyone looks down and looks up at the same time. Anyone looking at each other must drink", 
+        "content":{
+        
+        }
+    },
+    "Stir the pot": {
+        "description":"Rules Description 6", 
+        "content":{
+        
+        }
+    }, 
+    "Hot seat":{
+        "description":"You must answer all the questions in the next 45 seconds",
+        "content":{}
+
+    }
+}

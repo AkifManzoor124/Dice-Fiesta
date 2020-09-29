@@ -8,7 +8,7 @@ function MainActivity(props) {
       
       <View style={styles.sideMenuButtonContainer}>
         <Button
-          onPress={ () => navigation.navigate('CustomizeRules')}
+          onPress={ () => alert("swipe right for the side menu")}
           title="Swipe right for side menu"
         />
       </View>
@@ -19,10 +19,10 @@ function MainActivity(props) {
         />
       </View>
 
-      <View style={styles.buttonsContainer}>
+      <View style={styles.buttonContainer}>
         <View style={styles.buttonContainer}>
         <Button 
-            onPress={ () => navigation.navigate('StartGame')}
+            onPress={ () => navigation.navigate('AddMember')}
             title="Start Game"
           />
         </View>
@@ -31,12 +31,6 @@ function MainActivity(props) {
           <Button
             onPress={ () => navigation.navigate('CustomizeRules')}
             title="Customize Rules"
-          />
-        </View>
-        <View style={styles.buttonContainer}>
-          <Button
-            onPress={ () => navigation.navigate('AddMember')}
-            title="Add Members"
           />
         </View>
       </View>
@@ -56,10 +50,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignSelf: "center"
   },
-  buttonsContainer: {
-    alignSelf: "center"
-  },
   buttonContainer: {
+    alignSelf: "center",
     width: 250,
     margin: 5  
   },

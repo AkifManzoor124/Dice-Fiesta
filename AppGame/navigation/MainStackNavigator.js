@@ -9,6 +9,7 @@ import Settings from '../screens/Settings'
 import StartGame from '../screens/StartGame'
 import RulesWiki from '../screens/RulesWiki'
 import AddMember from '../screens/AddMember'
+import AboutTheDevelopers from '../screens/AboutTheDevelopers'
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -30,6 +31,7 @@ export default function App() {
         <Drawer.Screen name="Main Activity" component={Root} />
         <Drawer.Screen name="Settings" component={Settings} />
         <Drawer.Screen name="Rules Wiki" component={RulesWiki} />
+        <Drawer.Screen name="About the Developers" component={AboutTheDevelopers} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
