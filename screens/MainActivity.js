@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Button, StyleSheet, View, Image, Platform, StatusBar} from 'react-native';
 
+import images from '../assets/images'
+
 function MainActivity(props) {
   const { navigation } = props
   return (
@@ -14,7 +16,7 @@ function MainActivity(props) {
       </View>
 
       <View style={styles.logoContainer}>
-        <Image source={require('../The_Child_aka_Baby_Yoda_(Star_Wars).jpg')}
+        <Image source={images.logo}
         style={{height:250, width:300}}
         />
       </View>

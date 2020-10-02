@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import { Button, View, Text, StyleSheet, TouchableHighlight, Modal } from 'react-native';
+import { Button, View, Text, StyleSheet } from 'react-native';
 import { Image } from 'react-native'
 import images from '../assets/images'
 import gameRules from '../assets/gameRules'
-import referenceRules from '../Settings/rulesReference'
+import rulesReference from '../settings/rulesReference.json'
+import RuleModal from './RuleModal'
 
 const StartGame = (props) => {
 
   const [image, setImage] = useState(images.roll);
   const [modalVisible, setModalVisibility] = useState(false); //defaults the modalvisibility to false
-  const [rule, setRules]=useState ("Truth or Drink");
+  const [rule, setRules]= useState("Truth or Drink");
 
   const generateRandomDiceImage = () => {
     var randomNumber=Math.floor((Math.random()*6)+1);
@@ -37,10 +38,8 @@ const StartGame = (props) => {
         dice = images.dice6;
         break;          
     }
-    console.log("Random number: "+randomNumber); 
-    console.log("Rule: "+ referenceRules[randomNumber]);
     setImage(dice);
-    setRules(referenceRules[randomNumber]);
+    setRules(rulesReference[randomNumber]);
   }
 
   return(
@@ -51,21 +50,7 @@ const StartGame = (props) => {
           {/* when roll is pressed, the modalvisibility becomes not false aka true*/}
         </View>
 
-        <Modal 
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}>
-          <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-              <Text>{rule}</Text>
-              <Text>{gameRules[rule]["description"]}</Text>
-              <TouchableHighlight onPress={() => {setModalVisibility(!modalVisible);}}>
-                {/* when close is pressed, the modalvisibility becomes not true aka false, therefore dissapears*/}
-                <Text>Close</Text>
-              </TouchableHighlight>  
-            </View>
-          </View>
-        </Modal>
+      <RuleModal modalVisible={modalVisible} setModalVisibility={setModalVisibility} styles={styles} rule={rule}></RuleModal>
     </View>
   ); 
 
