@@ -38,12 +38,8 @@ const StartGame = (props) => {
         dice = images.dice6;
         break;          
     }
-    console.log("Random number: "+randomNumber); 
-    console.log("Rule: "+ rulesReference[randomNumber]);
     setImage(dice);
     setRules(rulesReference[randomNumber]);
-
-    console.log(rule)
   }
 
   return(
