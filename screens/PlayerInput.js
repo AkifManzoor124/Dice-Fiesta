@@ -1,9 +1,13 @@
+import { PrivateValueStore } from '@react-navigation/native'
 import React, { useState } from 'react'
 import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native'
+
+
 
 const PlayerInput = (props) =>{
   
   const handleName=(text)=>{
+    console.log(text)
     props.setName({name: text})
   }  
   return(
@@ -11,11 +15,12 @@ const PlayerInput = (props) =>{
         <View style= {{flexDirection:"row",alignItems:"center"}}>
           <Text>Player {props.number}</Text>
           <TextInput style = {styles.input}
+            value={props.values["player"+props.number]}
             underlineColorAndroid = "transparent"
             placeholder = "   Enter your name"
             placeholderTextColor = "#808080"
             autoCapitalize = "none"
-            onChangeText = {handleName}/>
+            onChangeText = {props.handleChange('player'+props.number)}/>
           </View>
         </View> 
         )
