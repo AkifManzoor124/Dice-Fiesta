@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, TouchableHighlight, Modal } from 'react-native';
-import gameRules from '../assets/gameRules'
+import gameRules from '../assets/Settings/gameRules.json'
 
 const RuleModal = (props) => {
 

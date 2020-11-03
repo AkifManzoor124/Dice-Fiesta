@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Button, View, Text, StyleSheet } from 'react-native';
 import { Image } from 'react-native'
 import images from '../assets/images'
-import gameRules from '../assets/gameRules'
 import rulesReference from '../settings/rulesReference.json'
 import RuleModal from './RuleModal'
 
