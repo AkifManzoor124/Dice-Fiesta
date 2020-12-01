@@ -4,7 +4,6 @@ import gameRules from '../assets/Settings/gameRules.json'
 
 const RuleModal = (props) => {
 
-
     return (
         <Modal
             animationType="slide"
@@ -16,7 +15,7 @@ const RuleModal = (props) => {
 
                     <Text>{gameRules[props.rule]["description"]}</Text>
 
-                    <TouchableHighlight onPress={() => { props.setModalVisibility(!props.modalVisible); }}>
+                    <TouchableHighlight onPress={() => { props.setModalVisibility(!props.modalVisible); props.setRounds(props.rounds +1) }}>
                         {/* when close is pressed, the modalvisibility becomes not true aka false, therefore dissapears*/}
                         <Text>Close</Text>
                     </TouchableHighlight>

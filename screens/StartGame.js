@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { Button, View, Text, StyleSheet } from 'react-native';
 import { Image } from 'react-native'
 import images from '../assets/images'
-import rulesReference from '../settings/rulesReference.json'
+import rulesReference from '../assets/Settings/rulesReference.json'
 import RuleModal from './RuleModal'
 
 const StartGame = (props) => {
 
-  const [image, setImage] = useState(images.roll);
+  const [image, setImage] = useState(images.roll); //image is state, setImage is the thing that changes the state
   const [modalVisible, setModalVisibility] = useState(false); //defaults the modalvisibility to false
   const [rule, setRules]= useState("Truth or Drink");
+  const [rounds,setRounds]=useState(0);
 
   const generateRandomDiceImage = () => {
     var randomNumber=Math.floor((Math.random()*6)+1);
@@ -41,15 +42,33 @@ const StartGame = (props) => {
     setRules(rulesReference[randomNumber]);
   }
 
+  let index = 0;
+  let interval=200;
+  const handlePress = () => {
+      let repeater =  setInterval( () => {
+        if(index < 8){
+          generateRandomDiceImage();
+          index+= 1;
+          interval+=100;
+        }else{
+          clearInterval(repeater);
+          setModalVisibility(true);
+        }
+      }, interval); 
+  }
+
   return(
     <View style={styles.container}>
+
+
       <Image source={image} style={styles.imageStyle}/>
+
         <View style={styles.buttonContainer}>
-          <Button title="Roll" onPress={() => {generateRandomDiceImage(); setModalVisibility(!modalVisible)}} /> 
+          <Button title="Roll" onPress={handlePress}/> 
           {/* when roll is pressed, the modalvisibility becomes not false aka true*/}
         </View>
 
-      <RuleModal modalVisible={modalVisible} setModalVisibility={setModalVisibility} styles={styles} rule={rule}></RuleModal>
+      <RuleModal modalVisible={modalVisible} setModalVisibility={setModalVisibility} setRounds={setRounds} rounds={rounds} styles={styles} rule={rule}></RuleModal>
     </View>
   ); 
 
@@ -61,7 +80,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#ebebeb'
+    backgroundColor: 'lightblue'
   },
   text: {
     color: '#101010',

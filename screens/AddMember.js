@@ -2,10 +2,7 @@ import React, { Fragment, useState } from 'react'
 import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native'
 import PlayerInput from '../screens/PlayerInput'
 import { Formik } from 'formik'
-import { Alert } from 'react-native'
 import { Button } from 'react-native'
-
-
 
 const AddMember = (props) => {
   const { navigation } = props
@@ -43,7 +40,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#ebebeb'
+    backgroundColor:'lightblue'
   },
   text: {
     color: '#101010',
