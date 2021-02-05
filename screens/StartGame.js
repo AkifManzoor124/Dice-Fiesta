@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Button, View, Text, StyleSheet } from 'react-native';
+import { Button, View, StyleSheet } from 'react-native';
 import { Image } from 'react-native'
 import images from '../assets/images'
 import rulesReference from '../assets/Settings/rulesReference.json'
 import RuleModal from './RuleModal'
+import AsyncStorage from '@react-native-community/async-storage'
 
 const StartGame = (props) => {
 
@@ -57,8 +58,20 @@ const StartGame = (props) => {
       }, interval); 
   }
 
+  const getPlayerName = async () => {
+    console.log("getPlayerName")
+    const players = await AsyncStorage.getItem('players')
+    console.log(players)
+    
+    return(
+      <Text>{players}</Text>
+    )
+  }
+
   return(
     <View style={styles.container}>
+
+      {getPlayerName}
 
 
       <Image source={image} style={styles.imageStyle}/>

@@ -3,15 +3,18 @@ import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-nativ
 import PlayerInput from '../screens/PlayerInput'
 import { Formik } from 'formik'
 import { Button } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
 
 const AddMember = (props) => {
   const { navigation } = props
-  const [name, setName] = useState("Truth or Drink");
 
 
   var playerArray = [1, 2, 3, 4, 5, 6]
-  const SaveAndSubmitButton=(values)=>{
-    console.log(JSON.stringify(values))
+
+  const SaveAndSubmitButton = async (values) => {
+
+    AsyncStorage.setItem('players', JSON.stringify(values));
+
     navigation.navigate('StartGame')
   }
 
@@ -19,15 +22,15 @@ const AddMember = (props) => {
     <View style={styles.container}>
       <Formik
         initialValues={{ player1: '' }}
-        onSubmit={values =>SaveAndSubmitButton(values)}>
+        onSubmit={values => SaveAndSubmitButton(values)}>
         {({ values, handleChange, handleSubmit }) => (
           <Fragment>
             {playerArray.map((i) => {
-              return <PlayerInput key={i} number={i} handleChange={handleChange} values ={values}></PlayerInput>
+              return <PlayerInput key={i} number={i} handleChange={handleChange} values={values}></PlayerInput>
             })}
             <Button
               title="Start Game!"
-              onPress={handleSubmit}/>
+              onPress={handleSubmit} />
           </Fragment>
         )}
       </Formik>
@@ -40,7 +43,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor:'lightblue'
+    backgroundColor: 'lightblue'
   },
   text: {
     color: '#101010',

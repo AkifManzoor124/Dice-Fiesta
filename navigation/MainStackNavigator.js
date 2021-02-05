@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -17,7 +17,7 @@ function Root() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="MainActivity" component={MainActivity}
-      options={{headerShown: false}}/> 
+        options={{ headerShown: false }} />
       <Stack.Screen name="StartGame" component={StartGame} />
       <Stack.Screen name="CustomizeRules" component={CustomizeRules} />
       <Stack.Screen name="AddMember" component={AddMember} />
