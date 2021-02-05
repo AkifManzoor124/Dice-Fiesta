@@ -1,5 +1,5 @@
-import React, { Fragment, useState } from 'react'
-import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native'
+import React, { Fragment } from 'react'
+import { View, StyleSheet } from 'react-native'
 import PlayerInput from '../screens/PlayerInput'
 import { Formik } from 'formik'
 import { Button } from 'react-native'
@@ -7,14 +7,11 @@ import AsyncStorage from '@react-native-community/async-storage'
 
 const AddMember = (props) => {
   const { navigation } = props
-
-
   var playerArray = [1, 2, 3, 4, 5, 6]
 
   const SaveAndSubmitButton = async (values) => {
-
+    console.log(values)
     AsyncStorage.setItem('players', JSON.stringify(values));
-
     navigation.navigate('StartGame')
   }
 
