@@ -20,16 +20,18 @@ const AddMember = (props) => {
       <Formik
         initialValues={{ player1: '' }}
         onSubmit={values => SaveAndSubmitButton(values)}>
-        {({ values, handleChange, handleSubmit }) => (
-          <Fragment>
-            {playerArray.map((i) => {
-              return <PlayerInput key={i} number={i} handleChange={handleChange} values={values}></PlayerInput>
-            })}
-            <Button
-              title="Start Game!"
-              onPress={handleSubmit} />
-          </Fragment>
-        )}
+        {
+          ({ values, handleChange, handleSubmit }) => (
+            <Fragment>
+              {playerArray.map((i) => {
+                return <PlayerInput key={i} number={i} handleChange={handleChange} values={values}></PlayerInput>
+              })}
+              <Button
+                title="Start Game!"
+                onPress={handleSubmit} />
+            </Fragment>
+          )
+        }
       </Formik>
     </View>
   )

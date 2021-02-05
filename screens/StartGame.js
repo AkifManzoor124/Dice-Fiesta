@@ -12,7 +12,7 @@ const StartGame = (props) => {
   const [modalVisible, setModalVisibility] = useState(false); //defaults the modalvisibility to false
   const [rule, setRules] = useState("Truth or Drink");
   const [rounds, setRounds] = useState(0);
-  const [players, setPlayers] = useState('Player 1');
+  const [players, setPlayers] = useState('{}');
 
   const generateRandomDiceImage = () => {
     var randomNumber = Math.floor((Math.random() * 6) + 1);
@@ -21,8 +21,14 @@ const StartGame = (props) => {
     setRules(rulesReference[randomNumber]);
   }
 
-  const getPlayerName = async () => {
+  const setPlayersAsync = async () => {
     setPlayers(await AsyncStorage.getItem('players'))
+  }
+
+  const getPlayerName = () => {
+    let json = JSON.parse(players)
+    console.log(json[`player${rounds % 6}`])
+    return json[`player${rounds % 6}`]
   }
 
   let index = 0;
@@ -43,12 +49,12 @@ const StartGame = (props) => {
   return (
     <View style={styles.container}>
 
-      <Text>{players}</Text>
+      <Text>{getPlayerName()}</Text>
       <Image source={image} style={styles.imageStyle} />
       <View style={styles.buttonContainer}>
-        <Button title="Roll" onPress={() => { handlePress(); getPlayerName(); }} />
+        <Button title="Roll" onPress={() => { setPlayersAsync(); handlePress(); setRounds(rounds + 1) }} />
       </View>
-      <RuleModal modalVisible={modalVisible} setModalVisibility={setModalVisibility} setRounds={setRounds} rounds={rounds} styles={styles} rule={rule}></RuleModal>
+      <RuleModal modalVisible={modalVisible} setModalVisibility={setModalVisibility} styles={styles} rule={rule}></RuleModal>
     </View>
   );
 
